@@ -27,31 +27,31 @@ void processMessage(aJsonObject *msg)
   
 aJsonObject *directionRight = aJson.getObjectItem(msg, "directionRight");
   if (directionRight) {
-    char* ledvaluestring = directionRight->valuestring;
-    float ledvaluefloat = atof(ledvaluestring);
-    int ledvalueint = ledvaluefloat;
-    if(ledvaluefloat>0){//vor
+    char* pwmvaluestring = directionRight->valuestring;
+    float pwmvaluefloat = atof(pwmvaluestring);
+    int pwmvalueint = pwmvaluefloat;
+    if(pwmvaluefloat>0){//vor
       digitalWrite(SteeringR,HIGH);
-      analogWrite(EngineR,ledvalueint);
+      analogWrite(EngineR,pwmvalueint);
     
-    }else if(ledvaluefloat<0){//zurück
+    }else if(pwmvaluefloat<0){//zurück
       digitalWrite(SteeringR,LOW);
-      analogWrite(EngineR,abs(ledvaluefloat));
+      analogWrite(EngineR,abs(pwmvaluefloat));
     }
   }
   
   aJsonObject *directionLeft = aJson.getObjectItem(msg, "directionLeft");
   if (directionLeft) {
-    char* ledvaluestring = directionLeft->valuestring;
-    float ledvaluefloat = atof(ledvaluestring);
-    int ledvalueint = ledvaluefloat;
-    if(ledvaluefloat>0){//vor
+    char* pwmvaluestring = directionpwm->valuestring;
+    float pwmvaluefloat = atof(pwmvaluestring);
+    int pwmvalueint = pwmvaluefloat;
+    if(pwmvaluefloat>0){//vor
       digitalWrite(SteeringL,HIGH);
-      analogWrite(EngineL,ledvalueint);
+      analogWrite(EngineL,pwmvalueint);
     
-    }else if(ledvaluefloat<0){//zurück
+    }else if(pwmvaluefloat<0){//zurück
       digitalWrite(SteeringL,LOW);
-      analogWrite(EngineL,abs(ledvaluefloat));
+      analogWrite(EngineL,abs(pwmvaluefloat));
     }
   }
    
