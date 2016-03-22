@@ -8,11 +8,10 @@ You controll the pwm value of the two motors of the robot with the sliders
 * npm Packages: serialport, express, socket.io
 * ajson libary to handle json with the aruino
 
-#### Images: ####
-* Vehicle
+#### Robot: ####
 
 ![Image](https://raw.githubusercontent.com/jufabeck2202/NodeJsMopelServer/master/vehicle.JPG)
 
-* Website
-* 
+#### Website: ####
+
 ![Image](https://raw.githubusercontent.com/jufabeck2202/NodeJsMopelServer/master/website.jpg)
