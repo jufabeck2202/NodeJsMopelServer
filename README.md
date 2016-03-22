@@ -1,7 +1,7 @@
 # NodeJsMopelServer
 Nodejs web server running on a raspberry pi used to controll a
-arduino via the serial Port. The arduino is used to controll a little robot.
-You controll the pwm value of the two motors of the robot with the sliders
+arduino via serial port. The arduino is used to controll a little robot.
+You controll the pwm value of the two motors with the sliders.
 
 #### Using: ####
 * motion for a live Webcam
