@@ -1,0 +1,49 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+  <title>test</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script src="script.js"></script>
+
+</head>
+<body>
+  <div align="center">
+<iframe src="http://beckflip1997.ddns.net:8081/?action=stream" height="720" width="1280" frameborder="0"></iframe><br>
+      <input type="range" id= "inputSliderLeft" min="-255" max="255" value="0" step="5" oninput="showValueLeft(this.value)" />
+      <br><p>linkes Rad</p><span id="directionLeft">0</span><br>
+      <input type="range" id= "inputSliderRight" min="-255" max="255" value="0" step="5" oninput="showValueRight(this.value)" />
+      <br><p>rechtes Rad</p><span id="directionRight">0</span>
+</div>
+
+<script type="text/javascript">
+                var socket = io.connect();
+
+                socket.on('directionLeft', function (data) {
+                        document.getElementById("inputSliderLeft").value = data.value;
+                        document.getElementById("directionLeft").innerHTML = data.value;
+                        
+                });
+                socket.on('directionRight', function (data) {
+                        document.getElementById("inputSliderRight").value = data.value;
+                        document.getElementById("directionRight").innerHTML = data.value
+                });
+
+                function showValueLeft(newValue)
+                {
+                        console.log(newValue);
+                        document.getElementById("directionLeft").innerHTML=newValue;
+                        socket.emit('directionLeft', { value: newValue });
+                }
+                function showValueRight(newValue)
+                {
+                        console.log(newValue);
+                        document.getElementById("directionRight").innerHTML=newValue;
+                        socket.emit('directionRight', { value: newValue });
+                }
+        </script>
+</body>
+</html>
